@@ -10,10 +10,10 @@ Everything is written in typescript because it's reasonably easy to work with an
 
 For examples of things you can do, look at some of the minions in the Magda codebase.
 
-- [https://github.com/magda-io/magda/blob/master/magda-sleuther-broken-link/src/onRecordFound.ts](This one looks for broken links)
-- [https://github.com/magda-io/magda/blob/master/magda-sleuther-format/src/onRecordFound.ts](This one figures out formats)
-- [https://github.com/magda-io/magda/blob/master/magda-sleuther-linked-data-rating/src/onRecordFound.ts](This one determines quality based on format and availability)
-- [https://github.com/magda-io/magda/blob/master/magda-sleuther-visualization/src/onRecordFound.ts](This one (poorly) parses CSV files to determine their schema)
+- [This one looks for broken links](https://github.com/magda-io/magda/blob/master/magda-sleuther-broken-link/src/onRecordFound.ts)
+- [This one figures out formats](https://github.com/magda-io/magda/blob/master/magda-sleuther-format/src/onRecordFound.ts)
+- [This one determines quality based on format and availability](https://github.com/magda-io/magda/blob/master/magda-sleuther-linked-data-rating/src/onRecordFound.ts)
+- [This one (poorly) parses CSV files to determine their schema](https://github.com/magda-io/magda/blob/master/magda-sleuther-visualization/src/onRecordFound.ts)
 
 ## To run
 
