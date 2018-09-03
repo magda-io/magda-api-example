@@ -1,33 +1,37 @@
-/**
- * Some predefined delays (in milliseconds).
- */
-export enum Delays {
-  Short = 500,
-  Medium = 2000,
-  Long = 5000,
-}
+// Simple example of what you can do with the Magda api - this crawls the first 100 dataset records
+// stored in the Magda api and gets data for a tagcloud from the keywords attribute.
 
-/**
- * Returns a Promise<string> that resolves after given time.
- *
- * @param {string} name - A name.
- * @param {number=} [delay=Delays.Medium] - Number of milliseconds to delay resolution of the Promise.
- * @returns {Promise<string>}
- */
-function delayedHello(
-  name: string,
-  delay: number = Delays.Medium,
-): Promise<string> {
-  return new Promise((resolve: (value?: string) => void) =>
-    setTimeout(() => resolve(`Hello, ${name}`), delay),
+import crawl from "./crawl";
+
+(async () => {
+  // Look at https://search.data.gov.au/api/v0/registry/records/summary
+  // to find other aspects - interesting ones include source-link-status,
+  // dcat-distribution-strings, and dataset-format
+  const aspects = ["dcat-dataset-strings"];
+
+  const tagCloud: { [tag: string]: number } = {};
+
+  await crawl(
+    aspects,
+    async record => {
+      const keywords: string[] =
+        record.aspects["dcat-dataset-strings"].keywords;
+
+      if (keywords) {
+        keywords.forEach(keyword => {
+          if (typeof tagCloud[keyword] === "undefined") {
+            tagCloud[keyword] = 0;
+          }
+
+          tagCloud[keyword] += 1;
+        });
+      }
+    },
+    100
   );
-}
 
-// Below are examples of using TSLint errors suppression
-// Here it is suppressing missing type definitions for greeter function
-
-// tslint:disable-next-line typedef
-export async function greeter(name) {
-  // tslint:disable-next-line no-unsafe-any no-return-await
-  return await delayedHello(name, Delays.Long);
-}
+  console.log(tagCloud);
+})().catch(e => {
+  console.error(e);
+  process.exit(1);
+});

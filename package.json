@@ -1,13 +1,15 @@
 {
-  "name": "node-typescript-boilerplate",
-  "version": "0.0.0",
-  "description": "Minimalistic boilerplate to quick-start Node.js development in TypeScript.",
+  "name": "@magda-io/api-example",
+  "version": "0.0.1",
+  "description": "Example of how to use the magda api",
   "engineStrict": true,
   "engines": {
     "node": ">= 8.9.0"
   },
   "devDependencies": {
     "@types/node": "~8.10.25",
+    "@types/node-fetch": "^2.1.2",
+    "@types/urijs": "^1.15.38",
     "prettier": "~1.14.2",
     "rimraf": "~2.6.2",
     "tslint": "~5.11.0",
@@ -20,15 +22,15 @@
     "clean": "rimraf coverage build tmp",
     "build": "tsc -p tsconfig.release.json",
     "watch": "tsc -w -p tsconfig.release.json",
-    "lint": "tslint -t stylish --project \"tsconfig.json\"",
-    "pretest": "npm run lint",
-    "test": "npm run test-only",
-    "test-only": "jest --coverage",
-    "test:watch": "jest --watch"
+    "dev": "ts-node src/main.ts",
+    "lint": "tslint -t stylish --project \"tsconfig.json\""
   },
-  "author": "Jakub Synowiec <github@jakubsynowiec.info>",
-  "license": "APLv2",
+  "author": "Alex Gilleran <alex.gilleran@data61.csiro.au>",
+  "license": "Apache-2.0",
   "dependencies": {
-    "tslib": "~1.9.3"
+    "node-fetch": "^2.2.0",
+    "ts-node": "^7.0.1",
+    "tslib": "~1.9.3",
+    "urijs": "^1.19.1"
   }
 }
