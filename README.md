@@ -6,6 +6,15 @@ This is intended to be extended into a proof of concept for doing something cool
 
 Everything is written in typescript because it's reasonably easy to work with and understand, but it could easily be translated into whatever language you like.
 
+## #Inspo
+
+For examples of things you can do, look at some of the minions in the Magda codebase.
+
+- [https://github.com/magda-io/magda/blob/master/magda-sleuther-broken-link/src/onRecordFound.ts](This one looks for broken links)
+- [https://github.com/magda-io/magda/blob/master/magda-sleuther-format/src/onRecordFound.ts](This one figures out formats)
+- [https://github.com/magda-io/magda/blob/master/magda-sleuther-linked-data-rating/src/onRecordFound.ts](This one determines quality based on format and availability)
+- [https://github.com/magda-io/magda/blob/master/magda-sleuther-visualization/src/onRecordFound.ts](This one (poorly) parses CSV files to determine their schema)
+
 ## To run
 
 ```bash
